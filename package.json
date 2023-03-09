@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npx nodemon index.js",
+    "start": "npx nodemon src/index.js",
     "test": "npx jest --watchAll",
     "test:coverage": "npx jest --watchAll --coverage"
   },
@@ -18,7 +18,8 @@
     "joi": "^17.8.3",
     "pg": "^8.10.0",
     "pg-hstore": "^2.3.4",
-    "sequelize": "^6.29.1"
+    "sequelize": "^6.29.1",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "eslint": "^8.35.0",

@@ -1,7 +1,9 @@
 const express = require('express');
-const entriesRouter = express.Router();
+const fieldsRouter = express.Router();
+const { getAllFieldsControllers, getAllFieldsByContentTypeControllers, createFieldByContentTypeControllers } = require('../controllers/fieldsControllers');
 
-entriesRouter.get('/:id', getAllFieldsByContentTypeControllers);
-entriesRouter.post('/:id', createFieldByContentTypeControllers);
+fieldsRouter.get('/', getAllFieldsControllers);
+fieldsRouter.get('/:id', getAllFieldsByContentTypeControllers);
+fieldsRouter.post('/:id', createFieldByContentTypeControllers);
 
-module.exports = entriesRouter;
+module.exports = fieldsRouter;
