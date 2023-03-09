@@ -9,9 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      fieldName: {
-        type: Sequelize.STRING
-      },
       cTypeId: {
         type: Sequelize.UUID
       },
