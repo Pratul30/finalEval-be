@@ -14,7 +14,6 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Entries.init({
-    name: DataTypes.STRING,
     cTypeId: DataTypes.UUID,
     fields: DataTypes.JSON
   }, {

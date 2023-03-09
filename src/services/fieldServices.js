@@ -3,7 +3,8 @@ const { Fields } = require('../../database/models');
 const getAllFieldsServices = async (req, res) => {
     try{
     const data = await Fields.findAll();
-    return res.status(200).json(data);
+    const fields = data[0].dataValues;
+    return fields;
     } catch (err) {
         throw new Error(err);
     }
@@ -23,11 +24,11 @@ const getAllFieldsByContentTypeServices = async (id) => {
     }
 }
 
-const createFieldByContentTypeServices = async (id, field) => {
+const createFieldByContentTypeServices = async (id, attributes) => {
     try{
     const data = await Fields.create({
         cTypeId: id,
-        attributes: field.attributes
+        attributes: attributes
     });
     return data;
 }
