@@ -1,4 +1,4 @@
-const { getAllFieldsServices, getAllFieldsByContentTypeServices, createFieldByContentTypeServices } = require('../services/fieldServices');
+const { getAllFieldsServices, getAllFieldsByContentTypeServices, createFieldByContentTypeServices, updateFieldByContentTypeServices } = require('../services/fieldServices');
 
 const getAllFieldsControllers = async (req, res) => {
     try{
@@ -36,8 +36,22 @@ const createFieldByContentTypeControllers = async (req, res) => {
     }
 }
 
+const updateFieldByContentTypeControllers = async (req, res) => {
+    try{
+    const { id } = req.params;
+    const { attributes } = req.body;
+    const data = await updateFieldByContentTypeServices(id, attributes);
+    return res.status(200).json(data);
+    } catch (e) {
+        res.status(500).json({
+            message: e.message
+        });
+    }
+}
+
 module.exports = {
     getAllFieldsControllers,
     getAllFieldsByContentTypeControllers,
-    createFieldByContentTypeControllers
+    createFieldByContentTypeControllers,
+    updateFieldByContentTypeControllers
 }
